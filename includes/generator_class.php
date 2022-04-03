@@ -32,11 +32,11 @@
             $prize = $this->prizeGenerate();
             $q = "SELECT * FROM `prizes` WHERE code='$code';";
             if($this->connect()->query($q)->num_rows>0)
-                echo "Twój kod nagrody: ".$code;
+                echo $code;
             else {
                 $q = "INSERT INTO prizes VALUES (NULL, '$code', '$prize', 0)";
                 $this->connect()->query($q);
-                echo "Twój kod nagrody: ".$code;
+                echo $code;
             }
         }
     }
